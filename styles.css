@@ -1065,6 +1065,15 @@ body::after {
     }
 }
 
+/* 注釈スタイル */
+.disclaimer {
+    font-size: 10px;
+    color: #888;
+    font-weight: 300;
+    margin-left: 4px;
+    opacity: 0.7;
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
