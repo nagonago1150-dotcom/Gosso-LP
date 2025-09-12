@@ -1,10 +1,8 @@
 {
-  "framework": null,
-  "outputDirectory": ".",
   "rewrites": [
     {
-      "source": "/meta-questionnaire001/",
-      "destination": "/index.html"
+      "source": "/meta-questionnaire001/(.*)",
+      "destination": "/$1"
     },
     {
       "source": "/meta-questionnaire001",
