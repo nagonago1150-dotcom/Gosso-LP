@@ -1,4 +1,14 @@
 {
   "framework": null,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/meta-questionnaire001/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/meta-questionnaire001",
+      "destination": "/index.html"
+    }
+  ]
 }
