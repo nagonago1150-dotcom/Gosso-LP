@@ -12,11 +12,15 @@ function getRedirectUrl() {
         '/5': 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi44h49yhgux'
     };
 
+    const finalUrl = redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41ruivpeep';
+    console.log('Current path:', path);
+    console.log('Redirect URL:', finalUrl);
+
     // パスに対応するURLがあれば返す、なければデフォルトURL
-    return redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41ruivpeep';
+    return finalUrl;
 }
 
-const redirectUrl = getRedirectUrl();
+// redirectUrl は使用時に動的に取得
 
 // カスタムカーソルの初期化
 function initCursor() {
@@ -256,7 +260,7 @@ function showLoading() {
             setTimeout(() => {
                 fadeOverlay.style.opacity = '1';
                 setTimeout(() => {
-                    window.location.href = redirectUrl;
+                    window.location.href = getRedirectUrl();
                 }, 1000);
             }, 100);
         }, 3000);
