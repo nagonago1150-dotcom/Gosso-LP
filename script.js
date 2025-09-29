@@ -277,6 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productLink = document.querySelector('.product-link');
     if (productLink) {
         productLink.href = getRedirectUrl();
+        console.log('Product link updated to:', productLink.href);
     }
 
     // カスタムカーソルの初期化
