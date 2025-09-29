@@ -1,6 +1,22 @@
 let currentQuestion = 1;
 const answers = {};
-const redirectUrl = 'https://shop.sain-clarte.com/gosso/white_kaku_15/pc.html';
+
+// パス別リダイレクトURL設定
+function getRedirectUrl() {
+    const path = window.location.pathname;
+    const redirectUrls = {
+        '/1': 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41ruivpeep',
+        '/2': 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41q1o5alqr',
+        '/3': 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41q3pp22zj',
+        '/4': 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41q7rhww52',
+        '/5': 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi44h49yhgux'
+    };
+
+    // パスに対応するURLがあれば返す、なければデフォルトURL
+    return redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41ruivpeep';
+}
+
+const redirectUrl = getRedirectUrl();
 
 // カスタムカーソルの初期化
 function initCursor() {
@@ -253,6 +269,12 @@ function updateCursorEvents() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // パス別リンク更新
+    const productLink = document.querySelector('.product-link');
+    if (productLink) {
+        productLink.href = getRedirectUrl();
+    }
+
     // カスタムカーソルの初期化
     if (window.matchMedia('(pointer: fine)').matches) {
         initCursor();
