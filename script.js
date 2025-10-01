@@ -13,8 +13,15 @@ function getRedirectUrl() {
     };
 
     const finalUrl = redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41ruivpeep';
-    console.log('Current path:', path);
-    console.log('Redirect URL:', finalUrl);
+
+    // 強化されたデバッグログ
+    console.log('========== ゴッソトリノ LP デバッグ情報 ==========');
+    console.log('現在のURL:', window.location.href);
+    console.log('現在のパス:', path);
+    console.log('パス判定結果:', redirectUrls[path] ? '対応URLあり' : 'デフォルトURL使用');
+    console.log('リダイレクト先URL:', finalUrl);
+    console.log('利用可能なパス:', Object.keys(redirectUrls).join(', '));
+    console.log('===============================================');
 
     // パスに対応するURLがあれば返す、なければデフォルトURL
     return finalUrl;
@@ -277,7 +284,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const productLink = document.querySelector('.product-link');
     if (productLink) {
         productLink.href = getRedirectUrl();
-        console.log('Product link updated to:', productLink.href);
+        console.log('✅ 製品リンク更新完了:', productLink.href);
+    } else {
+        console.warn('⚠️ 製品リンク要素が見つかりません');
     }
 
     // カスタムカーソルの初期化

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゴッソトリノ LP - リダイレクトテストページ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-value {
+            font-size: 16px;
+            color: #333;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.default {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .test-button:active {
+            transform: translateY(0);
+        }
+        .redirect-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 20px;
+        }
+        .urls-list {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .urls-list h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .url-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .url-path {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .url-destination {
+            font-size: 12px;
+            color: #666;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 ゴッソトリノ LP リダイレクトテスト</h1>
+        <p class="subtitle">パス判定と遷移先URLの可視化ツール</p>
+
+        <div class="info-box">
+            <div class="info-label">現在のURL</div>
+            <div class="info-value" id="current-url">読み込み中...</div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-label">現在のパス</div>
+            <div class="info-value" id="current-path">読み込み中...</div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-label">リダイレクト先URL</div>
+            <div class="info-value" id="redirect-url">読み込み中...</div>
+            <div id="status-badge"></div>
+        </div>
+
+        <button class="test-button redirect-button" id="redirect-button">
+            🚀 この販売ページへ移動する
+        </button>
+
+        <div class="urls-list">
+            <h3>📋 利用可能なパス一覧</h3>
+            <div class="url-item">
+                <div class="url-path">/1</div>
+                <div class="url-destination">https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41ruivpeep</div>
+            </div>
+            <div class="url-item">
+                <div class="url-path">/2</div>
+                <div class="url-destination">https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41q1o5alqr</div>
+            </div>
+            <div class="url-item">
+                <div class="url-path">/3</div>
+                <div class="url-destination">https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41q3pp22zj</div>
+            </div>
+            <div class="url-item">
+                <div class="url-path">/4</div>
+                <div class="url-destination">https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi41q7rhww52</div>
+            </div>
+            <div class="url-item">
+                <div class="url-path">/5</div>
+                <div class="url-destination">https://sf-system.jp/link.php?i=pi50n8tyae29&m=mi44h49yhgux</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="/1" class="test-button">テスト /1</a>
+            <a href="/2" class="test-button">テスト /2</a>
+            <a href="/3" class="test-button">テスト /3</a>
+            <a href="/4" class="test-button">テスト /4</a>
+            <a href="/5" class="test-button">テスト /5</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // ページ読み込み時に情報を表示
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUrl = window.location.href;
+            const currentPath = window.location.pathname;
+            const redirectUrl = getRedirectUrl();
+
+            document.getElementById('current-url').textContent = currentUrl;
+            document.getElementById('current-path').textContent = currentPath;
+            document.getElementById('redirect-url').textContent = redirectUrl;
+
+            // パス判定結果のステータスバッジ
+            const statusBadge = document.getElementById('status-badge');
+            const isPathMatched = currentPath === '/1' || currentPath === '/2' ||
+                                  currentPath === '/3' || currentPath === '/4' ||
+                                  currentPath === '/5';
+
+            if (isPathMatched) {
+                statusBadge.innerHTML = '<span class="status success">✓ パス対応URLあり</span>';
+            } else {
+                statusBadge.innerHTML = '<span class="status default">⚠ デフォルトURL使用</span>';
+            }
+
+            // リダイレクトボタン
+            document.getElementById('redirect-button').addEventListener('click', function() {
+                window.location.href = redirectUrl;
+            });
+
+            // コンソールにも出力
+            console.log('========== テストページ情報 ==========');
+            console.log('URL:', currentUrl);
+            console.log('パス:', currentPath);
+            console.log('リダイレクト先:', redirectUrl);
+            console.log('===================================');
+        });
+    </script>
+</body>
+</html>
